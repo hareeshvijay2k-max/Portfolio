@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Hareesh Vijay</title>
     <meta name="description" content="Learn more about Hareesh Vijay and professional background.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
 <header>
     <h1>About Me</h1>
-
+<button id="themeBtn">Toggle Theme</button>
     <nav aria-label="Main Navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -25,19 +25,55 @@
 
 <main>
     <section aria-labelledby="about-heading">
-        <h2 id="about-heading">Professional Background</h2>
+        
+    <div class="about-card">
+        <h2>👨‍💻 Professional Background</h2>
+        <p>
+            I am a passionate web developer focused on creating modern,
+            responsive and accessible websites using HTML, CSS and JavaScript.
+        </p>
 
-        <article>
-            <p>
-                I am a web developer focused on creating accessible and responsive websites.
-            </p>
-        </article>
-    </section>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>5+</h3>
+                <p>Projects</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>2026</h3>
+                <p>Internship</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Responsive Design</p>
+            </div>
+        </div>
+    </div>
+</section>
 </main>
 
 <footer>
     <p>&copy; 2026 Hareesh Vijay</p>
 </footer>
+<script>
+const btn = document.getElementById("themeBtn");
 
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+// Toggle theme
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
+</script>
 </body>
 </html>

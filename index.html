@@ -14,13 +14,16 @@
     <meta property="og:type" content="website">
 
     <link rel="canonical" href="https://example.com/">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
 <header role="banner">
-    <h1>Hareesh Vijay</h1>
+    <h1>Hareesh Vijay Portfolio</h1>
+    <button id="themeBtn">
+    Toggle Theme
+</button>
 
     <nav aria-label="Main Navigation">
         <ul>
@@ -32,28 +35,24 @@
     </nav>
 </header>
 
-<main id="main-content">
+<main>
 
-    <section aria-labelledby="hero-heading">
-        <h2 id="hero-heading">Welcome to My Portfolio</h2>
-        <p>
-            I am a passionate developer creating accessible and user-friendly web experiences.
-        </p>
-    </section>
+<section class="hero">
+    <h2 id="welcomeTitle">Welcome to My Portfolio</h2>
+    <p>
+        I am a passionate developer creating accessible and user-friendly web experiences.
+    </p>
 
-    <section aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Skills</h2>
+    <h2>Skills</h2>
 
-        <article>
-            <h3>Frontend Development</h3>
-            <p>HTML5, CSS3, JavaScript</p>
-        </article>
-
-        <article>
-            <h3>Backend Development</h3>
-            <p>Node.js, Express.js</p>
-        </article>
-    </section>
+    <div class="skills">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Express.js</div>
+    </div>
+</section>
 
 </main>
 
@@ -61,5 +60,20 @@
     <p>&copy; 2026 Hareesh Vijay. All Rights Reserved.</p>
 </footer>
 
+<script>
+const btn = document.getElementById('themeBtn');
+
+btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+const title = document.getElementById("welcomeTitle");
+
+title.addEventListener("click", () => {
+    title.classList.remove("pop");
+    void title.offsetWidth; // restart animation
+    title.classList.add("pop");
+});
+</script>
 </body>
 </html>

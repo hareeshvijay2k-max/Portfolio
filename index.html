@@ -3,27 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hareesh Vijay | Portfolio</title>
-    <meta name="description" content="Personal portfolio of Hareesh Vijay showcasing skills, projects, and contact information.">
-    <meta name="keywords" content="Portfolio, Web Developer, Projects, Skills">
-    <meta name="author" content="Hareesh Vijay">
-
-    <meta property="og:title" content="Hareesh Vijay Portfolio">
-    <meta property="og:description" content="Explore my projects, skills, and achievements.">
-    <meta property="og:type" content="website">
-
-    <link rel="canonical" href="https://example.com/">
+    <title>S Hareesh Vijay | Portfolio</title>
+    <meta name="description" content="Portfolio of S Hareesh Vijay, a 2nd Year B.Tech student and Web Developer.">
     <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
-<header role="banner">
-    <h1>Hareesh Vijay Portfolio</h1>
-    <button id="themeBtn">
-    Toggle Theme
-</button>
+<header>
+    <h1>S Hareesh Vijay</h1>
+    <button id="themeBtn">🌙 Toggle Theme</button>
 
     <nav aria-label="Main Navigation">
         <ul>
@@ -36,43 +25,88 @@
 </header>
 
 <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2 id="welcomeTitle">Welcome to My Portfolio</h2>
+                <h1>Hi, I'm <span class="gradient-text">S Hareesh Vijay</span></h1>
+                <p>A 2nd Year B.Tech student at Malla Reddy University. I'm passionate about building modern, responsive things for the web and seeking internship opportunities.</p>
+                <div class="hero-btns">
+                    <a href="projects.html" class="btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="IMG_20260215_172743.jpg (1).jpeg" alt="S Hareesh Vijay Profile Picture">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
-    <h2 id="welcomeTitle">Welcome to My Portfolio</h2>
-    <p>
-        I am a passionate developer creating accessible and user-friendly web experiences.
-    </p>
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h2>Education</h2>
+                <p>Pursuing Information Technology with a focus on Web Development.</p>
+                <a href="about.html" class="feature-link">Learn More &rarr;</a>
+            </div>
 
-    <h2>Skills</h2>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h2>Skills</h2>
+                <p>Proficient in HTML, CSS, and exploring the world of JavaScript and Python.</p>
+                <a href="about.html" class="feature-link">See My Skills &rarr;</a>
+            </div>
 
-    <div class="skills">
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">Express.js</div>
-    </div>
-</section>
-
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h2>Projects</h2>
+                <p>Check out my latest academic assignments and personal coding projects.</p>
+                <a href="projects.html" class="feature-link">Browse Gallery &rarr;</a>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
-    <p>&copy; 2026 Hareesh Vijay. All Rights Reserved.</p>
+    <p>&copy; 2026 S Hareesh Vijay</p>
 </footer>
 
 <script>
-const btn = document.getElementById('themeBtn');
+const btn = document.getElementById("themeBtn");
 
-btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    btn.textContent = "☀️ Toggle Theme";
+}
+
+// Toggle theme
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        btn.textContent = "☀️ Toggle Theme";
+    } else {
+        localStorage.setItem("theme", "light");
+        btn.textContent = "🌙 Toggle Theme";
+    }
 });
-
+</script>
+<script>
 const title = document.getElementById("welcomeTitle");
 
-title.addEventListener("click", () => {
-    title.classList.remove("pop");
-    void title.offsetWidth; // restart animation
+title.addEventListener("click", function () {
     title.classList.add("pop");
+
+    setTimeout(() => {
+        title.classList.remove("pop");
+    }, 500);
 });
 </script>
 </body>

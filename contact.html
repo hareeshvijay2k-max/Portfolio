@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Hareesh Vijay</title>
-    
-    <meta name="description" content="Contact Hareesh Vijay through this accessible contact form.">
-<link rel="stylesheet" href="style1.css">
+    <meta name="description" content="Get in touch with Hareesh Vijay.">
+    <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
 <header>
-    <h1>Contact Me</h1>
+    <h1>Contact</h1>
     <button id="themeBtn">Toggle Theme</button>
 
     <nav aria-label="Main Navigation">
@@ -26,53 +25,41 @@
 </header>
 
 <main>
+    <section>
+        <h2>Get In Touch</h2>
+        
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">S Hareesh Vijay</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">hareeshvjay2k@gmail.com</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or inquiry..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
 
-<section aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Send a Message</h2>
-
-    <form action="#" method="post" aria-label="Contact Form">
-
-        <div>
-            <label for="name">Full Name</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                autocomplete="name">
+            <div class="contact-socials">
+                <a href="#" class="social-icon" aria-label="LinkedIn">In</a>
+                <a href="#" class="social-icon" aria-label="GitHub">Gh</a>
+            </div>
         </div>
-
-        <div>
-            <label for="email">Email Address</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email">
-        </div>
-
-        <div>
-            <label for="message">Message</label>
-            <textarea
-                id="message"
-                name="message"
-                rows="6"
-                required></textarea>
-        </div>
-
-        <button type="submit">
-            Send Message
-        </button>
-
-    </form>
-</section>
-
+    </section>
 </main>
 
 <footer>
     <p>&copy; 2026 Hareesh Vijay</p>
 </footer>
+
 <script>
 const btn = document.getElementById("themeBtn");
 

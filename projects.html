@@ -4,73 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Hareesh Vijay</title>
-    <meta name="description" content="Portfolio projects and case studies.">
+    <meta name="description" content="A visual gallery of projects by Hareesh Vijay.">
     <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
 
 <header>
-    <h1>Projects</h1>
-    <button id="themeBtn">Toggle Theme</button>
+    <h1>My Work</h1>
+    <button id="themeBtn">🌙 Toggle Theme</button>
 
     <nav aria-label="Main Navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="projects.html" aria-current="page">Projects</a></li>
+            <li><a href="todo.html">To-Do App</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-
     <section>
-    <h2>Featured Projects</h2>
+        <div class="about-intro">
+            <h2>🚀 Featured Projects</h2>
+            <p>A collection of my academic assignments and personal coding explorations.</p>
+        </div>
 
-    <div class="projects-grid">
+        <!-- Project Filters -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="web">Web Design</button>
+            <button class="filter-btn" data-category="js">JavaScript</button>
+            <button class="filter-btn" data-category="python">Python</button>
+        </div>
 
-        <article class="card">
-            <h3>Portfolio Website</h3>
-            <p>Responsive portfolio built with HTML5 and CSS3.</p>
-        </article>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Project 1 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250" alt="Portfolio Website">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Web Design</span>
+                    <h3>Portfolio Website</h3>
+                    <p>A high-end, responsive portfolio built with HTML5 and CSS3, featuring dark mode and advanced grid layouts.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-primary-sm">Live Demo</a>
+                        <a href="#" class="btn-secondary-sm">View Code</a>
+                    </div>
+                </div>
+            </article>
 
-        <article class="card">
-            <h3>Task Manager App</h3>
-            <p>Productivity application for managing tasks.</p>
-        </article>
+            <!-- Project 2 -->
+            <article class="project-card" data-category="js">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250" alt="Task Manager App">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">JavaScript</span>
+                    <h3>Task Manager App</h3>
+                    <p>A productivity application designed to help students manage their daily tasks and academic deadlines effectively.</p>
+                    <div class="project-links">
+                        <a href="todo.html" class="btn-primary-sm">Open App</a>
+                        <a href="#" class="btn-secondary-sm">View Code</a>
+                    </div>
+                </div>
+            </article>
 
-        <article class="card">
-            <h3>Travel Blog</h3>
-            <p>Responsive travel blogging website.</p>
-        </article>
+            <!-- Project 3 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250" alt="Travel Blog">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Web Design</span>
+                    <h3>Travel Blog</h3>
+                    <p>A responsive blogging platform focused on travel stories, featuring a clean layout and modern typography.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-primary-sm">Live Demo</a>
+                        <a href="#" class="btn-secondary-sm">View Code</a>
+                    </div>
+                </div>
+            </article>
 
-    </div>
-</section>
-
+            <!-- Project 4 -->
+            <article class="project-card" data-category="python">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250" alt="Data Scraper">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Python</span>
+                    <h3>Data Scraper</h3>
+                    <p>A Python-based automation tool that extracts news headlines and saves them to a CSV file for analysis.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-primary-sm">Documentation</a>
+                        <a href="#" class="btn-secondary-sm">View Code</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
 </main>
 
 <footer>
     <p>&copy; 2026 Hareesh Vijay</p>
 </footer>
-<script>
-const btn = document.getElementById("themeBtn");
 
-// Load saved theme
+<script>
+// Theme Logic
+const btn = document.getElementById("themeBtn");
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
+    btn.textContent = "☀️ Toggle Theme";
 }
-
-// Toggle theme
 btn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-
     if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("theme", "dark");
+        btn.textContent = "☀️ Toggle Theme";
     } else {
         localStorage.setItem("theme", "light");
+        btn.textContent = "🌙 Toggle Theme";
     }
 });
-</script></body>
+
+// Filtering Logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        projectCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.5s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+</body>
 </html>

@@ -19,6 +19,7 @@
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
+            <li><a href="todo.html">To-Do App</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -29,7 +30,7 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
-                <h2 id="welcomeTitle">Welcome to My Portfolio</h2>
+                <span class="hero-tag">Welcome to my portfolio</span>
                 <h1>Hi, I'm <span class="gradient-text">S Hareesh Vijay</span></h1>
                 <p>A 2nd Year B.Tech student at Malla Reddy University. I'm passionate about building modern, responsive things for the web and seeking internship opportunities.</p>
                 <div class="hero-btns">
@@ -96,17 +97,6 @@ btn.addEventListener("click", () => {
         localStorage.setItem("theme", "light");
         btn.textContent = "🌙 Toggle Theme";
     }
-});
-</script>
-<script>
-const title = document.getElementById("welcomeTitle");
-
-title.addEventListener("click", function () {
-    title.classList.add("pop");
-
-    setTimeout(() => {
-        title.classList.remove("pop");
-    }, 500);
 });
 </script>
 </body>

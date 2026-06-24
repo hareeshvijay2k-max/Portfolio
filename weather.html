@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard | Hareesh Vijay</title>
+    <meta name="description" content="A real-time weather dashboard powered by OpenWeatherMap API.">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🌤️ Weather Dashboard</h1>
+    <button id="themeBtn">🌙 Toggle Theme</button>
+
+    <nav aria-label="Main Navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="todo.html">To-Do App</a></li>
+            <li><a href="weather.html" aria-current="page">Weather</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="weather-container">
+        <div class="weather-wrapper">
+            <!-- Header -->
+            <div class="weather-header">
+                <h2>Real-Time Weather</h2>
+                <p>Search for any city to get live weather data</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="weather-search-section">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    class="weather-input" 
+                    placeholder="Enter city name (e.g., London, New York, Tokyo)..."
+                    aria-label="Search for a city"
+                >
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state" style="display: none;">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state" style="display: none;">
+                <p id="errorMessage"></p>
+            </div>
+
+            <!-- Weather Display -->
+            <div id="weatherDisplay" class="weather-display" style="display: none;">
+                <!-- Current Weather Card -->
+                <div class="current-weather-card">
+                    <div class="weather-icon-large">
+                        <span id="weatherIcon">🌤️</span>
+                    </div>
+                    <div class="weather-info">
+                        <h3 id="cityName">--</h3>
+                        <p id="weatherDescription">--</p>
+                        <div class="temperature">
+                            <span id="temperature">--</span>°C
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Details Grid -->
+                <div class="weather-details-grid">
+                    <div class="detail-card">
+                        <span class="detail-icon">💧</span>
+                        <p class="detail-label">Humidity</p>
+                        <p class="detail-value" id="humidity">--</p>
+                    </div>
+                    <div class="detail-card">
+                        <span class="detail-icon">💨</span>
+                        <p class="detail-label">Wind Speed</p>
+                        <p class="detail-value" id="windSpeed">--</p>
+                    </div>
+                    <div class="detail-card">
+                        <span class="detail-icon">🌡️</span>
+                        <p class="detail-label">Feels Like</p>
+                        <p class="detail-value" id="feelsLike">--</p>
+                    </div>
+                    <div class="detail-card">
+                        <span class="detail-icon">🔽</span>
+                        <p class="detail-label">Pressure</p>
+                        <p class="detail-value" id="pressure">--</p>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="additional-info">
+                    <div class="info-row">
+                        <span>Visibility:</span>
+                        <span id="visibility">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span>UV Index:</span>
+                        <span id="uvIndex">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span>Sunrise:</span>
+                        <span id="sunrise">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span>Sunset:</span>
+                        <span id="sunset">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initial State -->
+            <div id="initialState" class="initial-state">
+                <p>🔍 Search for a city to see the weather</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Hareesh Vijay</p>
+</footer>
+
+<script src="weather.js"></script>
+<script>
+const btn = document.getElementById("themeBtn");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    btn.textContent = "☀️ Toggle Theme";
+}
+
+// Toggle theme
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        btn.textContent = "☀️ Toggle Theme";
+    } else {
+        localStorage.setItem("theme", "light");
+        btn.textContent = "🌙 Toggle Theme";
+    }
+});
+</script>
+</body>
+</html>
